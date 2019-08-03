@@ -1,6 +1,6 @@
 //Import all users action types here
 import {
-    GET_POSTS,
+    GET_USERS,
     // GET_USER,
     // CREATE_USER,
     // UPDATE_USER,
@@ -12,10 +12,10 @@ import {
 
 const initialState = null;
 
-export const postManagement = (state=initialState, action) => {
+export const userReducer = (state=initialState, action) => {
     switch(action.type) {
-        case GET_POSTS:
-            return [...action.payload];
+        case GET_USERS:
+            return [...action.payload.users];
         default:
             return state;
     }   

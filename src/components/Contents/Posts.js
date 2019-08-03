@@ -8,10 +8,44 @@ class Posts extends React.Component {
     this.props.getPosts();
   }
 
+  /**
+   * For any API calls, it must have these 3 states: 
+   * BEGIN, SUCCESS, FAILURE. 
+   * These states will be helpful for you to decide 
+   * when to show loading, or handle error in the user interface.
+   * GET_POSTS_BEGIN
+   * GET_POSTS_SUCCESS
+   * GET_POSTS_FAILURE
+   */
+
+  renderPosts() {
+    // console.log(this.props.posts);
+    if (this.props.posts.isLoading) {
+      return <div>Loading...</div>;
+    }
+
+    if (this.props.posts) {
+      return this.props.posts.payload.map(post => {
+        return (
+          <div key={post.id}>
+            <h1>{post.title}</h1>
+            <p>{post.body}</p>
+          </div>
+        );
+      });
+    }
+
+    if (this.props.posts.error) {
+      return <div>Error!</div>;
+    }
+
+  }
+
   render() {
+    console.log(this.props.posts);
     return (
       <div>
-        Posts
+        { this.renderPosts() }
       </div>
     );
   }
