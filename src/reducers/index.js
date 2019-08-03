@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
-import { userReducer } from './userReducer';
-import { postsReducer } from './postsReducer';
+import { usersReducer } from './data/usersReducer';
+import { postsReducer } from './data/postsReducer';
 
 //You can combine all your reducers using combineReducers
 //imported from redux library
 
 export default combineReducers({
-    users: userReducer,
+    users: usersReducer,
     posts: postsReducer
 });
