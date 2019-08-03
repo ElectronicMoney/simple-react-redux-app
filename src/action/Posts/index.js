@@ -1,3 +1,4 @@
+import { config } from '../../api/config';
 //Import all POSTs action types here
 import {
     GET_POSTS,
@@ -8,18 +9,16 @@ import {
 } from '../../constants';
 
 
-let payload = {
-    users: [
-        {id: 1, title: 'Best Blog', body: 'I hate nonsense'},
-        {id: 2, title: 'testing Blog', body: 'I love ES6'},
-    ]
-}
+// let payload = {
+//     users: [
+//         {id: 1, title: 'Best Blog', body: 'I hate nonsense'},
+//         {id: 2, title: 'testing Blog', body: 'I love ES6'},
+//     ]
+// }
 
-export const getPosts = () => {
-    return {
-        type: GET_POSTS,
-        payload:payload
-    }
+export const getPosts = () => async (dispatch) => {
+    const response =  await config.get('/posts');
+    dispatch( { type: GET_POSTS, payload:response.data })
 }
 
 // export const getPost = (payload) => {

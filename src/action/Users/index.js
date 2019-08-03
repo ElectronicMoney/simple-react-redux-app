@@ -1,3 +1,5 @@
+import { config } from '../../api/config';
+
 //Import all users action types here
 import {
     GET_USERS,
@@ -16,6 +18,8 @@ let payload = {
 }
 
 export const getUsers = () => {
+    //Make a network calls here
+
     return {
         type: GET_USERS,
         payload: payload

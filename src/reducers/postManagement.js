@@ -15,7 +15,7 @@ const initialState = null;
 export const postManagement = (state=initialState, action) => {
     switch(action.type) {
         case GET_POSTS:
-            return [...action.payload.posts];
+            return [...action.payload];
         default:
             return state;
     }   
